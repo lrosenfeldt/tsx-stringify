@@ -22,3 +22,24 @@ export function attributesFromProps(props: Record<string, unknown>): string {
   }
   return attributes.length > 0 ? " " + attributes.join(" ") : "";
 }
+export function childToString(child: unknown): string {
+  switch (typeof child) {
+    case "boolean":
+    case "number":
+      return child.toString();
+    case "string":
+      return child;
+    case "undefined":
+      return "undefined";
+    case "object":
+      if (!child)
+        throw new Error("null should be filtered out and not be used as child");
+      if (Array.isArray(child))
+        throw new Error(
+          "Arrays must be unwrapped and not used as children directly"
+        );
+      throw new Error("Objects are not valid children");
+    default:
+      throw new Error(`Unhandled child ${child} of type ${typeof child}`);
+  }
+}

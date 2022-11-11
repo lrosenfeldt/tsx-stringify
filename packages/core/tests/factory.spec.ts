@@ -16,4 +16,27 @@ describe("stringify is a valid jsx factory", () => {
     expect(input).toMatch(/autofocus(?!=)/i);
     expect(input).toMatch(/disabled=""/i);
   });
+  it("inserts the given children", () => {
+    expect(stringify("h1", null, "Welcome stranger!")).toMatch(
+      /welcome stranger/i
+    );
+    expect(
+      stringify("div", null, stringify("span", null, "Batman & Robin"))
+    ).toMatch(/<span>batman & robin<\/span>/i);
+    expect(stringify("p", null, "See you later, alligator!")).toMatch(
+      /<p>see you later, alligator!<\/p>/i
+    );
+  });
+  it("unwraps children arrays", () => {
+    const ul = stringify(
+      "ul",
+      null,
+      ["Wizards of Earthsea", "Hyperion", "Lies of Locke Lamora"].map((book) =>
+        stringify("li", null, book)
+      )
+    );
+    expect(ul).toMatch(/wizards of earthsea/i);
+    expect(ul).toMatch(/<li>[^<]+<\/li>/i);
+    expect(ul).not.toMatch(/\[|\]/i);
+  });
 });

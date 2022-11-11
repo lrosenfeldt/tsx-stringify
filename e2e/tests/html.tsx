@@ -1,3 +1,6 @@
+import "@testing-library/jest-dom";
+
+import { screen } from "@testing-library/dom";
 import { stringify } from "@tsx-stringify/core";
 describe("jsx is html with xml-syntax", () => {
   it("outputs the corresponding the html", () => {
@@ -10,6 +13,11 @@ describe("jsx is html with xml-syntax", () => {
         </section>
       </div>
     );
-    expect(html).not.toBe("");
+    document.body.innerHTML = html;
+    expect(screen.getByRole("tab")).toBeInTheDocument();
+    expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent(
+      /welcome to typescript-land/i
+    );
+    expect(screen.getByRole("heading", { level: 2 })).toHaveClass("heading-md");
   });
 });
