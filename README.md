@@ -8,7 +8,7 @@ Use TypeScript to turn your JSX into html strings. Benefit from type checking an
 - [x] handle basic string tags
 - [x] convert props to attributes
 - [x] insert children
-- [ ] handle async children
+- [x] handle async children
 - [ ] handle void tags
 - [ ] custom functional tags
 - [ ] custom class tags
