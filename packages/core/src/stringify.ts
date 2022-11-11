@@ -52,3 +52,22 @@ export async function stringify(
 export namespace stringify {
   export import JSX = JSXInternal;
 }
+export async function Fragment({
+  children,
+}: {
+  children?: JSXInternal.ChildNode[];
+}): JSXInternal.Element {
+  return children ? await contentFromChilren(children) : "";
+}
+export async function HTML(
+  props: JSXInternal.IntrinsicElements["html"]
+): JSXInternal.Element {
+  const { children } = props;
+  delete props.children;
+  const html = await stringify(
+    "html",
+    props as Record<string, unknown>,
+    children
+  );
+  return "<!DOCTYPE html>" + "\n" + html;
+}

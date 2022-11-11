@@ -1,7 +1,7 @@
 import "@testing-library/jest-dom";
 
 import { screen } from "@testing-library/dom";
-import { stringify } from "@tsx-stringify/core";
+import { Fragment, HTML, stringify } from "@tsx-stringify/core";
 
 describe("jsx is html with xml-syntax", () => {
   it("outputs the corresponding the html", async () => {
@@ -32,5 +32,30 @@ describe("jsx is html with xml-syntax", () => {
     document.body.innerHTML = html;
     expect(screen.getByText(/parkway drive/i)).toBeInTheDocument();
     expect(screen.getByText(/emil bulls/i)).toBeInTheDocument();
+  });
+  it("provides an <HTML />-Tag that adds the neccessary doctype", async () => {
+    const html = await (
+      <HTML lang="en">
+        <body>
+          <h1>This is the body</h1>
+          <p>I'm a sexy and I know it!</p>
+        </body>
+      </HTML>
+    );
+    document.body.innerHTML = html;
+    expect(document.doctype).not.toBeNull();
+    expect(html).toMatch(/^<!DOCTYPE html>/);
+    expect(screen.getByText(/i'm a sexy and i know it!/i)).toBeInTheDocument();
+  });
+  it("provides a fragment to wrap plain values", async () => {
+    const html = await (
+      <>
+        <h1>Hello World</h1>
+        <p class="cthulhu">fthagn!</p>
+      </>
+    );
+    document.body.innerHTML = html;
+    expect(document.body.childElementCount).toBe(2);
+    expect(screen.getByText(/fthagn/i)).toHaveClass("cthulhu");
   });
 });

@@ -12,8 +12,8 @@ Use TypeScript to turn your JSX into html strings. Benefit from type checking an
 - [x] handle void tags
 - [x] custom functional tags
 - [x] custom class tags
-- [ ] fragment
-- [ ] `<HTML />`-Tag to add doctype
+- [x] fragment
+- [x] `<HTML />`-Tag to add doctype
 - [ ] add synchronous alternative
 - [ ] render to file
 - [ ] examples

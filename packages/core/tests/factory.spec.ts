@@ -1,4 +1,4 @@
-import { stringify, Tag } from "../src";
+import { Fragment, stringify, Tag } from "../src";
 
 describe("stringify is a valid jsx factory", () => {
   it("should use a string as a tag name", async () => {
@@ -156,5 +156,16 @@ describe("stringify is a valid jsx factory", () => {
     const fnHtml = await stringify(ListLanguagesTagFn, { languages });
     const classHtml = await stringify(ListLanguagesClass, { languages });
     expect(fnHtml).toBe(classHtml);
+  });
+  it("has a fragment that inserts plain values as a jsx node", async () => {
+    const htmlFragment = await stringify(
+      Fragment,
+      null,
+      stringify("main", null, "Big foot"),
+      stringify("footer", null, "Little foot")
+    );
+    expect(htmlFragment).toMatch(/big foot/i);
+    expect(htmlFragment).toMatch(/little foot/i);
+    expect(htmlFragment).toMatch(/^<main>.*<\/footer>$/i);
   });
 });
