@@ -1,7 +1,2 @@
-import * as JSXInternal from "./jsx";
-export function stringify() {
-  return "Hello World";
-}
-export namespace stringify {
-  export import JSX = JSXInternal;
-}
+export * as JSX from "./jsx";
+export { stringify } from "./stringify";
