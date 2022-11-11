@@ -1,6 +1,7 @@
 import {
   attributesFromProps,
   childToString,
+  isRenderable,
   isVoid,
 } from "@tsx-stringify/common";
 
@@ -30,11 +31,17 @@ async function contentFromChilren(
   return content.join("");
 }
 export async function stringify(
-  tag: string,
+  tag: string | Function,
   props: Record<string, unknown> | null,
   ...children: JSXInternal.ChildNode[]
 ) {
   if (!props) props = {};
+  if (typeof tag === "function") {
+    props["children"] = children;
+    return isRenderable<JSXInternal.Element>(tag)
+      ? new tag(props).render()
+      : tag(props);
+  }
   if (isVoid(tag)) {
     return `<${tag}${attributesFromProps(props)}>`;
   }

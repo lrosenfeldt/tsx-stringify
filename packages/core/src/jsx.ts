@@ -17,8 +17,10 @@ export interface ElementAttributesProperty {
 export interface ElementChildAttribute {
   children: {};
 }
-// disabled class based elements
-export type ElementClass = never;
+// a class that is used as jsx must have a render method that is use to generate the jsx
+export type ElementClass = {
+  render(): Element | null;
+};
 export interface IntrinsicAttributes {}
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export interface IntrinsicClassAttributes<T> {}

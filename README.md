@@ -10,8 +10,8 @@ Use TypeScript to turn your JSX into html strings. Benefit from type checking an
 - [x] insert children
 - [x] handle async children
 - [x] handle void tags
-- [ ] custom functional tags
-- [ ] custom class tags
+- [x] custom functional tags
+- [x] custom class tags
 - [ ] fragment
 - [ ] `<HTML />`-Tag to add doctype
 - [ ] add synchronous alternative
@@ -47,7 +47,7 @@ import { Fragment, stringify } from "@tsx-stringify/jsx";
 // by default all operations are asynchronous in tsx-stringify
 const Section: Tag.Func = async () => {
   // get a text to display but only after 100 ms
-  const promisedText = new Promise((resolve) =>
+  const promisedText = new Promise(resolve =>
     setTimeout(() => resolve("I hope you enjoy your stay!"), 100)
   );
   return (
@@ -61,7 +61,7 @@ const Section: Tag.Func = async () => {
 const ListContent: Tag.Func<{ books: string[] }> = async ({ books }) => {
   return (
     <>
-      {books.map((book) => (
+      {books.map(book => (
         <li>{book}</li>
       ))}
     </>
