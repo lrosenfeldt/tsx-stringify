@@ -1,4 +1,5 @@
 import { stringify } from "../src";
+
 describe("stringify is a valid jsx factory", () => {
   it("should use a string as a tag name", async () => {
     await expect(stringify("section", null)).resolves.toBe(
@@ -33,7 +34,7 @@ describe("stringify is a valid jsx factory", () => {
     const ul = await stringify(
       "ul",
       null,
-      ["Wizards of Earthsea", "Hyperion", "Lies of Locke Lamora"].map((book) =>
+      ["Wizards of Earthsea", "Hyperion", "Lies of Locke Lamora"].map(book =>
         stringify("li", null, book)
       )
     );

@@ -2,6 +2,7 @@ import "@testing-library/jest-dom";
 
 import { screen } from "@testing-library/dom";
 import { stringify } from "@tsx-stringify/core";
+
 describe("jsx is html with xml-syntax", () => {
   it("outputs the corresponding the html", async () => {
     const html = await (
@@ -23,8 +24,8 @@ describe("jsx is html with xml-syntax", () => {
   it("awaits promised children", async () => {
     const html = await (
       <ul>
-        {Promise.resolve(["Parkway Drive", "Emil Bulls"]).then((bands) =>
-          bands.map((band) => <li>{band}</li>)
+        {Promise.resolve(["Parkway Drive", "Emil Bulls"]).then(bands =>
+          bands.map(band => <li>{band}</li>)
         )}
       </ul>
     );
