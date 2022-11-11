@@ -1,0 +1,8 @@
+{
+  "main": "./dist/index.js",
+  "name": "@tsx-stringify/core",
+  "version": "0.1.0",
+  "devDependencies": {
+    "@tsx-stringify/html-types": "workspace:*"
+  }
+}

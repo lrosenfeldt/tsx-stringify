@@ -1,5 +1,9 @@
 {
   "files": [],
   "include": [],
-  "references": [{ "path": "./packages/html-types/tsconfig.json" }]
+  "references": [
+    { "path": "./e2e/tsconfig.json" },
+    { "path": "./packages/core/tsconfig.json" },
+    { "path": "./packages/html-types/tsconfig.json" }
+  ]
 }

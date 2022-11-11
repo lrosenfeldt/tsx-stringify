@@ -1,0 +1,12 @@
+{
+  "extends": "../tsconfig-base.json",
+  "compilerOptions": {
+    "jsx": "react",
+    "jsxFactory": "stringify",
+    "noEmit": true,
+    "outDir": "./dist",
+    "rootDir": "./tests"
+  },
+  "include": ["./tests"],
+  "references": [{ "path": "../packages/core/tsconfig.json" }]
+}
