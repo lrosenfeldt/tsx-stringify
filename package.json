@@ -1,0 +1,21 @@
+{
+  "author": "Lukas Rosenfeldt",
+  "description": "Turn your jsx into html strings at runtime. All through the power TypeScript!",
+  "keywords": [
+    "jsx",
+    "typescript",
+    "ssg",
+    "html"
+  ],
+  "license": "ISC",
+  "name": "@tsx-stringify/monorepo",
+  "version": "0.1.0",
+  "scripts": {
+    "build": "tsc --build",
+    "build:clean": "tsc --build --clean"
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.9",
+    "typescript": "^4.8.4"
+  }
+}
