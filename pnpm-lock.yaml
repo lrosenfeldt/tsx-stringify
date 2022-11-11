@@ -30,10 +30,15 @@ importers:
     devDependencies:
       '@tsx-stringify/core': link:../packages/core
 
+  packages/common:
+    specifiers: {}
+
   packages/core:
     specifiers:
+      '@tsx-stringify/common': workspace:*
       '@tsx-stringify/html-types': workspace:*
     devDependencies:
+      '@tsx-stringify/common': link:../common
       '@tsx-stringify/html-types': link:../html-types
 
   packages/html-types:
