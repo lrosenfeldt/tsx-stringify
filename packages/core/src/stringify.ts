@@ -1,4 +1,8 @@
-import { attributesFromProps, childToString } from "@tsx-stringify/common";
+import {
+  attributesFromProps,
+  childToString,
+  isVoid,
+} from "@tsx-stringify/common";
 import * as JSXInternal from "./jsx";
 async function* unwrapChildren(
   children: JSXInternal.ChildNode[]
@@ -30,6 +34,9 @@ export async function stringify(
   ...children: JSXInternal.ChildNode[]
 ) {
   if (!props) props = {};
+  if (isVoid(tag)) {
+    return `<${tag}${attributesFromProps(props)}>`;
+  }
   return `<${tag}${attributesFromProps(props)}>${await contentFromChilren(
     children
   )}</${tag}>`;

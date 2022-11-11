@@ -64,4 +64,10 @@ describe("stringify is a valid jsx factory", () => {
     expect(ul).toMatch(/charging toads/i);
     expect(ul).toMatch(/^<ul>/i);
   });
+  it("respects void tags", async () => {
+    expect(await stringify("input", null, "Pennywise")).toBe("<input>");
+    expect(await stringify("hr", { role: "presentation" })).toBe(
+      '<hr role="presentation">'
+    );
+  });
 });
