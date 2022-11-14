@@ -1,0 +1,9 @@
+{
+  "main": "./dist/index.js",
+  "name": "@tsx-stringify/sync",
+  "version": "0.1.0",
+  "devDependencies": {
+    "@tsx-stringify/common": "workspace:*",
+    "@tsx-stringify/html-types": "workspace:*"
+  }
+}

@@ -5,6 +5,7 @@
     { "path": "./e2e/tsconfig.json" },
     { "path": "./packages/common/tsconfig.json" },
     { "path": "./packages/core/tsconfig.json" },
-    { "path": "./packages/html-types/tsconfig.json" }
+    { "path": "./packages/html-types/tsconfig.json" },
+    { "path": "./packages/sync/tsconfig.json" }
   ]
 }

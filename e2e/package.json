@@ -3,6 +3,7 @@
   "name": "@tsx-stringify/e2e",
   "version": "0.1.0",
   "devDependencies": {
-    "@tsx-stringify/core": "workspace:*"
+    "@tsx-stringify/core": "workspace:*",
+    "@tsx-stringify/sync": "workspace:*"
   }
 }

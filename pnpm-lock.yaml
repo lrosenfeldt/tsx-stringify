@@ -51,8 +51,10 @@ importers:
   e2e:
     specifiers:
       '@tsx-stringify/core': workspace:*
+      '@tsx-stringify/sync': workspace:*
     devDependencies:
       '@tsx-stringify/core': link:../packages/core
+      '@tsx-stringify/sync': link:../packages/sync
 
   packages/common:
     specifiers: {}
@@ -67,6 +69,14 @@ importers:
 
   packages/html-types:
     specifiers: {}
+
+  packages/sync:
+    specifiers:
+      '@tsx-stringify/common': workspace:*
+      '@tsx-stringify/html-types': workspace:*
+    devDependencies:
+      '@tsx-stringify/common': link:../common
+      '@tsx-stringify/html-types': link:../html-types
 
 packages:
 
