@@ -45,6 +45,12 @@ export async function stringify(
   if (isVoid(tag)) {
     return `<${tag}${attributesFromProps(props)}>`;
   }
+  if (tag === "html") {
+    // if an html element is inserted, prepend the doctype void tag (doctype tag is non-compliant with jsx)
+    return `<!DOCTYPE html>\n<${tag}${attributesFromProps(
+      props
+    )}>${await contentFromChilren(children)}</${tag}>`;
+  }
   return `<${tag}${attributesFromProps(props)}>${await contentFromChilren(
     children
   )}</${tag}>`;
@@ -58,16 +64,4 @@ export async function Fragment({
   children?: JSXInternal.ChildNode[];
 }): JSXInternal.Element {
   return children ? await contentFromChilren(children) : "";
-}
-export async function HTML(
-  props: JSXInternal.IntrinsicElements["html"]
-): JSXInternal.Element {
-  const { children } = props;
-  delete props.children;
-  const html = await stringify(
-    "html",
-    props as Record<string, unknown>,
-    children
-  );
-  return "<!DOCTYPE html>" + "\n" + html;
 }

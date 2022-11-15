@@ -1,7 +1,7 @@
 import "@testing-library/jest-dom";
 
 import { screen } from "@testing-library/dom";
-import { Fragment, HTML, stringify } from "@tsx-stringify/sync";
+import { Fragment, stringify } from "@tsx-stringify/sync";
 
 describe("jsx is html with xml-syntax (synchronous)", () => {
   it("outputs the corresponding the html", () => {
@@ -21,14 +21,14 @@ describe("jsx is html with xml-syntax (synchronous)", () => {
     );
     expect(screen.getByRole("heading", { level: 2 })).toHaveClass("heading-md");
   });
-  it("provides an <HTML />-Tag that adds the neccessary doctype", () => {
+  it("the html tag automatically prepends the doctype", () => {
     const html = (
-      <HTML lang="en">
+      <html lang="en">
         <body>
           <h1>This is the body</h1>
           <p>I'm a sexy and I know it!</p>
         </body>
-      </HTML>
+      </html>
     );
     document.body.innerHTML = html;
     expect(document.doctype).not.toBeNull();

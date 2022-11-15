@@ -42,6 +42,11 @@ export function stringify(
   if (isVoid(tag)) {
     return `<${tag}${attributesFromProps(props)}>`;
   }
+  if (tag === "html") {
+    return `<!DOCTYPE html>\n<${tag}${attributesFromProps(
+      props
+    )}>${contentFromChilren(children)}</${tag}>`;
+  }
   return `<${tag}${attributesFromProps(props)}>${contentFromChilren(
     children
   )}</${tag}>`;
@@ -55,15 +60,4 @@ export function Fragment({
   children?: JSXInternal.ChildNode[];
 }): JSXInternal.Element {
   return children ? contentFromChilren(children) : "";
-}
-export function HTML(
-  props: JSXInternal.IntrinsicElements["html"]
-): JSXInternal.Element {
-  const { children } = props;
-  delete props.children;
-  return (
-    "<!DOCTYPE html>" +
-    "\n" +
-    stringify("html", props as Record<string, unknown>, children)
-  );
 }

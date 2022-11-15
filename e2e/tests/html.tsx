@@ -1,7 +1,7 @@
 import "@testing-library/jest-dom";
 
 import { screen } from "@testing-library/dom";
-import { Fragment, HTML, stringify } from "@tsx-stringify/core";
+import { Fragment, stringify } from "@tsx-stringify/core";
 
 describe("jsx is html with xml-syntax", () => {
   it("outputs the corresponding the html", async () => {
@@ -33,14 +33,14 @@ describe("jsx is html with xml-syntax", () => {
     expect(screen.getByText(/parkway drive/i)).toBeInTheDocument();
     expect(screen.getByText(/emil bulls/i)).toBeInTheDocument();
   });
-  it("provides an <HTML />-Tag that adds the neccessary doctype", async () => {
+  it("the html tag automatically prepends the doctype", async () => {
     const html = await (
-      <HTML lang="en">
+      <html lang="en">
         <body>
           <h1>This is the body</h1>
           <p>I'm a sexy and I know it!</p>
         </body>
-      </HTML>
+      </html>
     );
     document.body.innerHTML = html;
     expect(document.doctype).not.toBeNull();
