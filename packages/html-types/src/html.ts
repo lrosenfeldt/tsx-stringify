@@ -974,6 +974,7 @@ export interface MetaElement extends Element<null> {
     | "x-ua-compatible"
     | "refresh"
     | "name";
+  name?: string;
 }
 export interface MeterElement extends Element<null> {
   high?: number;
