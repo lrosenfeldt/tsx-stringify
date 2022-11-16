@@ -3,6 +3,7 @@
   "include": [],
   "references": [
     { "path": "./e2e/tsconfig.json" },
+    { "path": "./examples/node-server/tsconfig.json" },
     { "path": "./packages/common/tsconfig.json" },
     { "path": "./packages/core/tsconfig.json" },
     { "path": "./packages/html-types/tsconfig.json" },

@@ -17,7 +17,7 @@ Use TypeScript to turn your JSX into html strings. Benefit from type checking an
 - [x] add synchronous alternative
 - [x] render to file
 - [ ] examples
-  - [ ] node server
+  - [x] node server
   - [ ] basic ssg
   - [ ] 11ty
 

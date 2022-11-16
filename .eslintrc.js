@@ -12,6 +12,7 @@ const config = {
     tsconfigRootDir: __dirname,
     project: [
       "./e2e/tsconfig.json",
+      "./examples/node-server/tsconfig.json",
       "./packages/common/tsconfig.json",
       "./packages/core/tsconfig.json",
       "./packages/core/tsconfig-test.json",
