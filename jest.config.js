@@ -23,19 +23,6 @@ const config = {
       },
     },
     {
-      displayName: "render: Unit tests",
-      preset: "ts-jest",
-      rootDir: "./packages/render",
-      testEnvironment: "node",
-      testMatch: ["<rootDir>/tests/**/*.spec.[jt]s?(x)"],
-      transform: {
-        "^.+\\.tsx?$": [
-          "ts-jest",
-          { tsconfig: "<rootDir>/tsconfig-test.json" },
-        ],
-      },
-    },
-    {
       displayName: "sync: Unit tests",
       preset: "ts-jest",
       rootDir: "./packages/sync",

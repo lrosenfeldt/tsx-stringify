@@ -86,9 +86,6 @@ importers:
   packages/html-types:
     specifiers: {}
 
-  packages/render:
-    specifiers: {}
-
   packages/sync:
     specifiers:
       '@tsx-stringify/common': workspace:*

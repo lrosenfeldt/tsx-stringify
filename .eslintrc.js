@@ -17,8 +17,6 @@ const config = {
       "./packages/core/tsconfig.json",
       "./packages/core/tsconfig-test.json",
       "./packages/html-types/tsconfig.json",
-      "./packages/render/tsconfig.json",
-      "./packages/render/tsconfig-test.json",
       "./packages/sync/tsconfig.json",
       "./packages/sync/tsconfig-test.json",
       "./tsconfig-eslint.json",
