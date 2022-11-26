@@ -6,7 +6,7 @@ Use TypeScript to turn your JSX into html strings. Benefit from type checking an
 
 You need to tell TypeScript, to use the `stringify` function to replace your JSX. This function, the so called `jsxFactory` is used to generate the html-strings _at runtime_. A simple jsx tag `<div role="tab">Tab 1</div>` will be then turned into `stringify("div", { role: "tab" }, "Tab 1")`. To allow the use of fragments set `jsxFragmentFactory` to `Fragment`. You need to explicitly import `stringify` and `Fragment` in your `.tsx`-Files to make this work.
 
-```json
+```jsonc
 {
   // in your tsconfig.json
   "compilerOptions": {
